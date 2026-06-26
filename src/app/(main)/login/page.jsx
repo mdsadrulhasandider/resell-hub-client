@@ -23,7 +23,7 @@ const LoginForm = () => {
     try {
       await signIn(email, password);
       toast.success("Welcome back! Signed in successfully.");
-      router.push(from);
+      router.push(from === '/' ? '/dashboard' : from);
     } catch (err) {
       console.error(err);
       toast.error(err.message || "Invalid credentials. Please try again.");
@@ -36,7 +36,7 @@ const LoginForm = () => {
     try {
       await googleSignIn();
       toast.success("Welcome! Signed in with Google.");
-      router.push(from);
+      router.push(from === '/' ? '/dashboard' : from);
     } catch (err) {
       console.error(err);
       toast.error("Google sign-in failed.");

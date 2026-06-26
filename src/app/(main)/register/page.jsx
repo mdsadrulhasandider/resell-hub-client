@@ -19,14 +19,20 @@ const Register = () => {
   const [location, setLocation] = useState('');
   const [role, setRole] = useState('buyer');
   const [loading, setLoading] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (password.length < 8) {
+      setPasswordError('Password must be at least 8 characters long.');
+      return;
+    }
+    setPasswordError('');
     setLoading(true);
     try {
       await createUser(email, password, name, role, phone, location, photo);
       toast.success("Welcome! Registered successfully.");
-      router.push('/');
+      router.push('/dashboard');
     } catch (err) {
       console.error(err);
       toast.error(err.message || "Registration failed. Please check details.");
@@ -98,18 +104,24 @@ const Register = () => {
           <div className="form-control">
             <label className="label">
               <span className="label-text text-base-content/85 font-semibold text-sm">Password</span>
+              <span className="label-text-alt text-base-content/50 text-xs">Min. 8 characters</span>
             </label>
             <div className="relative">
               <FiLock className="absolute top-1/2 left-4 -translate-y-1/2 text-slate-500" />
               <input
                 type="password"
-                placeholder="••••••••"
+                placeholder="Min. 8 characters"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="input input-bordered w-full pl-12 bg-base-100 text-base-content"
+                onChange={(e) => { setPassword(e.target.value); if (passwordError) setPasswordError(''); }}
+                className={`input input-bordered w-full pl-12 bg-base-100 text-base-content ${passwordError ? 'input-error' : ''}`}
                 required
               />
             </div>
+            {passwordError && (
+              <p className="text-error text-xs mt-1 flex items-center gap-1">
+                ⚠️ {passwordError}
+              </p>
+            )}
           </div>
 
           <div className="form-control">

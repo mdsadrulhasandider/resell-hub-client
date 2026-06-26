@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://resell-hub-server-mn37.onrender.com/api/:path*"
+    }
+  ]
+}

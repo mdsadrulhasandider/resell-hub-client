@@ -5,8 +5,9 @@ ReSell Hub is a modern, responsive, and secure online web application that allow
 ---
 
 ## 🔗 Project Links
-- **Live URL**: [Live Website Link](https://resell-hub-client.web.app) *(Update with your production client URL)*
-- **Server Code Repository**: [GitHub Server Repo Link](https://github.com/mdsadrulhasandider/resell-hub-server)
+- **Live URL**: [ReSell Hub Live](https://resell-hub-client-liard.vercel.app)
+- **Client Code Repository**: [GitHub Client Repo](https://github.com/mdsadrulhasandider/resell-hub-client)
+- **Server Code Repository**: [GitHub Server Repo](https://github.com/mdsadrulhasandider/resell-hub-server)
 
 ---
 

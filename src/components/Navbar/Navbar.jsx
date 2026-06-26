@@ -102,8 +102,22 @@ const Navbar = () => {
             {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
           </button>
           {isOpen && (
-            <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-200 rounded-box w-52 space-y-2 border border-base-300">
+            <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-200 rounded-box w-60 space-y-2 border border-base-300">
               {navLinks}
+              {!user && (
+                <>
+                  <li className="border-t border-base-300 mt-2 pt-2">
+                    <Link href="/login" onClick={() => setIsOpen(false)} className="font-semibold text-base-content/80">
+                      Sign In
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/register" onClick={() => setIsOpen(false)} className="bg-blue-600 text-white font-semibold rounded-lg justify-center">
+                      Get Started
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           )}
         </div>
@@ -161,7 +175,7 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <div className="flex items-center gap-2 md:gap-4 shrink-0">
+          <div className="hidden md:flex items-center gap-2 md:gap-4 shrink-0">
             <Link href="/login" className="text-base-content/80 hover:text-base-content font-medium text-sm px-2 py-1 transition-colors">
               Sign In
             </Link>

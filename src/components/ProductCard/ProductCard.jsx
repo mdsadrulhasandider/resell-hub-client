@@ -1,7 +1,39 @@
+'use client';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import { FiCheckCircle, FiHeart } from 'react-icons/fi';
+import { toast } from 'react-hot-toast';
+import useAuth from '@/hooks/useAuth';
 
 const ProductCard = ({ product }) => {
+  const { user } = useAuth();
+  const [isWishlisted, setIsWishlisted] = useState(false);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    setIsWishlisted(saved.some(item => item._id === product._id));
+  }, [product._id]);
+
+  const handleWishlist = (e) => {
+    e.preventDefault();
+    if (!user) {
+      toast.error('Please login to save to wishlist.');
+      return;
+    }
+    const saved = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    if (isWishlisted) {
+      const updated = saved.filter(item => item._id !== product._id);
+      localStorage.setItem('wishlist', JSON.stringify(updated));
+      setIsWishlisted(false);
+      toast.success('Removed from wishlist.');
+    } else {
+      saved.push(product);
+      localStorage.setItem('wishlist', JSON.stringify(saved));
+      setIsWishlisted(true);
+      toast.success('Added to wishlist! ❤️');
+    }
+  };
+
   return (
     <div className="card bg-base-100 border border-base-300 hover:border-blue-500/50 shadow-xl overflow-hidden hover:scale-[1.02] transition-all group">
       {/* Product Image */}
@@ -14,9 +46,13 @@ const ProductCard = ({ product }) => {
         <span className="absolute top-4 left-4 badge badge-primary font-semibold text-white">
           {product.category}
         </span>
-        <span className="absolute top-4 right-4 bg-base-100/80 backdrop-blur-sm p-2 rounded-full cursor-pointer hover:bg-red-500/20 text-base-content/60 hover:text-red-400 transition-colors">
-          <FiHeart className="h-5 w-5" />
-        </span>
+        <button
+          onClick={handleWishlist}
+          title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+          className={`absolute top-4 right-4 bg-base-100/80 backdrop-blur-sm p-2 rounded-full cursor-pointer transition-all hover:scale-110 ${isWishlisted ? 'text-red-500 bg-red-50' : 'text-base-content/60 hover:text-red-400 hover:bg-red-500/10'}`}
+        >
+          <FiHeart className={`h-5 w-5 transition-all ${isWishlisted ? 'fill-red-500' : ''}`} />
+        </button>
       </figure>
 
       {/* Product Info */}

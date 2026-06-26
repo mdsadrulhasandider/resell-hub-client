@@ -28,7 +28,8 @@ export const logoutUser = async () => {
 export const loginWithGoogle = async () => {
   return await authClient.signIn.social({
     provider: 'google',
-    callbackURL: window.location.origin
+    callbackURL: window.location.origin,
+    flow: 'navigate'
   });
 };
 

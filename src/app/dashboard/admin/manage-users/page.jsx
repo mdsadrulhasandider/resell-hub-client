@@ -89,7 +89,7 @@ const ManageUsers = () => {
                     <p className="text-[10px] text-base-content/60">{u.email}</p>
                   </td>
                   <td>
-                    <span className={`badge uppercase text-[10px] font-bold ${u.role === 'admin' ? 'badge-error text-white' : u.role === 'seller' ? 'badge-primary text-white' : 'badge-neutral text-base-content/80'}`}>
+                    <span className={`badge uppercase text-[10px] font-bold ${u.role === 'admin' ? 'badge-error text-white' : u.role === 'seller' ? 'badge-primary text-white' : 'badge-success text-white'}`}>
                       {u.role || 'buyer'}
                     </span>
                   </td>

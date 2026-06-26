@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://resell-hub-server-mn37.onrender.com/api/:path*"
+    },
+    {
+      "source": "/api/payments/:path*",
+      "destination": "https://resell-hub-server-mn37.onrender.com/api/payments/:path*"
     }
   ]
 }

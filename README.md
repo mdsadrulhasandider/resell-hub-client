@@ -10,6 +10,18 @@ ReSell Hub is a modern, responsive, and secure online web application that allow
 
 ---
 
+## 🔑 Test Credentials (for Assignment Evaluation)
+
+To test the role-based dashboards, please use the following credentials or sign up a new account and manually change the role in the database.
+
+| Role | Email | Password | Access Dashboard |
+|---|---|---|---|
+| **Admin** | `admin@resellhub.com` | `123456` | User Moderation, Product Management, Site Settings |
+| **Seller** | `seller@resellhub.com` | `123456` | Product Listing, Order Management, Sales Analytics |
+| **Buyer** | `buyer@resellhub.com` | `123456` | Orders, Wishlist, Payment History |
+
+---
+
 ## 🚀 Key Features
 
 ### 🌟 1. Core Marketplace Experience

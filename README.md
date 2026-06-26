@@ -16,9 +16,9 @@ To test the role-based dashboards, please use the following credentials or sign 
 
 | Role | Email | Password | Access Dashboard |
 |---|---|---|---|
-| **Admin** | `admin@resellhub.com` | `123456` | User Moderation, Product Management, Site Settings |
-| **Seller** | `seller@resellhub.com` | `123456` | Product Listing, Order Management, Sales Analytics |
-| **Buyer** | `buyer@resellhub.com` | `123456` | Orders, Wishlist, Payment History |
+| **Admin** | `admin@resellhub.com` | `Pass1234` | User Moderation, Product Management, Site Settings |
+| **Seller** | `seller@resellhub.com` | `Pass1234` | Product Listing, Order Management, Sales Analytics |
+| **Buyer** | `buyer@resellhub.com` | `Pass1234` | Orders, Wishlist, Payment History |
 
 ---
 
